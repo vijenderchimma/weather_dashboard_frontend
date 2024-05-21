@@ -1,0 +1,129 @@
+.container {
+    width: 100%;
+    max-width: 90%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+
+input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.weather-result {
+    margin-top: 20px;
+    color: green;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+li button {
+    background: #FF5733;
+}
+
+
+/* header styling */
+
+.header-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0cb4c3;
+    color: #ffffff;
+
+}
+
+
+.link-container{
+    display: flex;
+    align-items: center;
+    border: none;
+    margin-right: 20px;
+    list-style-type: none;
+}
+
+.link-container li{
+    border: none;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 10px;
+}
+.website-logo{
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.main-heading{
+    color: #007BFF;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+
+.forecast-container {
+    background-color: #87ceeb;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-top: 20px;
+}
+
+.forecast {
+    flex: 1; /* Each forecast section takes equal space */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.forecast h3 {
+    text-align: center;
+}
+
+.forecast-item {
+    text-align: center;
+    padding: 10px;
+}
+
+.forecast img {
+    margin-top: 10px;
+    max-width: 100%;
+    height: auto;
+}
