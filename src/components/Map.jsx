@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import L from 'leaflet'; // Import Leaflet
 import 'leaflet/dist/leaflet.css';
 import Header from './Header';
 
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+// Define the custom icon
+const customIcon = L.icon({
+    className: 'marker-icon',
+    iconUrl: 'https://cdn.pixabay.com/photo/2014/04/03/10/03/google-309739_1280.png', // Path to your custom marker image
+    iconSize: [30, 50], // Size of the icon
+    iconAnchor: [20,60], // Point of the icon which will correspond to marker's location
+    popupAnchor: [-3, -76], // Point from which the popup should open relative to the iconAnchor
+});
 
-
-const Map= () => {
+const Map = () => {
     const [position, setPosition] = useState(null);
     const [weatherPopup, setWeatherPopup] = useState(null);
 
@@ -25,7 +33,7 @@ const Map= () => {
         }
     };
 
-        const fetchHourlyForecast = async (lat, lon) => {
+    const fetchHourlyForecast = async (lat, lon) => {
         try {
             const response = await axios.get('https://weather-dashboard-mern.onrender.com/weather/hourly', {
                 params: { lat, lon },
@@ -47,10 +55,8 @@ const Map= () => {
         }
     };
 
-
-
     const LocationMarker = () => {
-        const map = useMapEvents({
+        useMapEvents({
             click: async (e) => {
                 const { lat, lng } = e.latlng;
 
@@ -65,7 +71,6 @@ const Map= () => {
                     }
 
                     const weatherData = await fetchWeather({ hamlet: address.hamlet, village: address.village, city: cityName, state: address.state, country: address.country, lat, lon: lng });
-                    console.log(weatherData)
                     setPosition([lat, lng]);
                     setWeatherPopup({
                         position: [lat, lng],
@@ -88,7 +93,7 @@ const Map= () => {
         return position ? (
             <>
                 {weatherPopup && (
-                    <Marker position={weatherPopup.position}>
+                    <Marker position={weatherPopup.position} icon={customIcon}> {/* Use the custom icon */}
                         <Popup onClose={() => setWeatherPopup(null)}>{weatherPopup.content}</Popup>
                     </Marker>
                 )}
@@ -104,19 +109,16 @@ const Map= () => {
         slidesToScroll: 1,
     };
 
-
-
-  return (
-    <div className="container">
-        <Header />
-        
-        <MapContainer center={[51.505, -0.09]} zoom={2} style={{ height: '500px', width: '100%' }}>
+    return (
+        <div className="container">
+            <Header />
+            <MapContainer center={[51.505, -0.09]} zoom={2} style={{ height: '500px', width: '100%' }}>
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 <LocationMarker />
             </MapContainer>
             <div className='forecast-container'>
                 <h3>Hourly Forecast</h3>
-                <p>slide the weather forcast</p>
+                <p>slide the weather forecast</p>
                 <Slider {...sliderSettings}>
                     {hourlyForecast.map((forecast, index) => (
                         <div key={index} className="forecast-item">
@@ -127,10 +129,9 @@ const Map= () => {
                     ))}
                 </Slider>
             </div>
-
             <div className='forecast-container'>
                 <h3>Daily Forecast</h3>
-                <p>slide the weather forcast</p>
+                <p>slide the weather forecast</p>
                 <Slider {...sliderSettings}>
                     {dailyForecast.map((forecast, index) => (
                         <div key={index} className="forecast-item">
@@ -142,7 +143,7 @@ const Map= () => {
                 </Slider>
             </div>
         </div>
-  )
+    );
 }
 
-export default Map
+export default Map;

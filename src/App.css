@@ -127,3 +127,11 @@ li button {
     max-width: 100%;
     height: auto;
 }
+
+
+.marker-icon{
+    border-top-right-radius: 80px;
+    border-top-left-radius: 80px;
+    border-bottom-right-radius:100px;
+    border-bottom-left-radius: 100px;
+}
