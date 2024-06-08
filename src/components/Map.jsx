@@ -114,7 +114,7 @@ const Map= () => {
             </MapContainer>
             <div className='forecast-container'>
                 <h3>Hourly Forecast</h3>
-                <p>slide the weather forcast</p>
+                <p>slide the weather forecast</p>
                 <Slider {...sliderSettings}>
                     {hourlyForecast.map((forecast, index) => (
                         <div key={index} className="forecast-item">
@@ -128,7 +128,7 @@ const Map= () => {
 
             <div className='forecast-container'>
                 <h3>Daily Forecast</h3>
-                <p>slide the weather forcast</p>
+                <p>slide the weather forecast</p>
                 <Slider {...sliderSettings}>
                     {dailyForecast.map((forecast, index) => (
                         <div key={index} className="forecast-item">

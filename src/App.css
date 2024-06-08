@@ -11,7 +11,7 @@
 
 
 input {
-    width: calc(100% - 22px);
+    width: 100%;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -53,20 +53,18 @@ li button {
     background: #FF5733;
 }
 
-
 /* header styling */
 
-.header-container{
+.header-container {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #0cb4c3;
     color: #ffffff;
-
 }
 
-
-.link-container{
+.link-container {
     display: flex;
     align-items: center;
     border: none;
@@ -74,28 +72,27 @@ li button {
     list-style-type: none;
 }
 
-.link-container li{
+.link-container li {
     border: none;
 }
 
-.nav-link{
+.nav-link {
     text-decoration: none;
     color: #ffffff;
     margin-right: 10px;
 }
-.website-logo{
+
+.website-logo {
     color: #ffffff;
     text-decoration: none;
     margin-left: 20px;
 }
 
-.main-heading{
+.main-heading {
     color: #007BFF;
     font-size: 30px;
     text-align: center;
 }
-
-
 
 .forecast-container {
     background-color: #87ceeb;
@@ -105,20 +102,11 @@ li button {
     margin-top: 20px;
 }
 
-.forecast {
-    flex: 1; /* Each forecast section takes equal space */
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.forecast h3 {
-    text-align: center;
-}
-
 .forecast-item {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
 }
 
@@ -128,10 +116,3 @@ li button {
     height: auto;
 }
 
-
-.marker-icon{
-    border-top-right-radius: 80px;
-    border-top-left-radius: 80px;
-    border-bottom-right-radius:100px;
-    border-bottom-left-radius: 100px;
-}

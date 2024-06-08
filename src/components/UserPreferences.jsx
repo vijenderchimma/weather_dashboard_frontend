@@ -22,8 +22,8 @@ const UserPreferences = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const locationDetails = {location,city,state,country}
-        const response = await axios.post("https://weather-dashboard-mern.onrender.com/name",locationDetails)
+        const locationDetails = { location, city, state, country }
+        const response = await axios.post("https://weather-dashboard-mern.onrender.com/name", locationDetails)
 
         setDailyForecast(response.data.list)
         setHourlyForecast(response.data.list)
@@ -38,9 +38,9 @@ const UserPreferences = () => {
     };
 
 
-  return (
-    <div className="container">
-        <Header />
+    return (
+        <div className="container">
+            <Header />
             <h1 className='main-heading'>Weather Dashboard</h1>
 
             <form onSubmit={handleSubmit}>
@@ -52,7 +52,7 @@ const UserPreferences = () => {
             </form>
             <div className='forecast-container'>
                 <h3>Hourly Forecast</h3>
-                <p>slide the weather forcast</p>
+                <p>slide the weather forecast</p>
                 <Slider {...sliderSettings}>
                     {hourlyForecast.map((forecast, index) => (
                         <div key={index} className="forecast-item">
@@ -66,19 +66,21 @@ const UserPreferences = () => {
 
             <div className='forecast-container'>
                 <h3>Daily Forecast</h3>
-                <p>slide the weather forcast</p>
+                <p>slide the weather forecast</p>
                 <Slider {...sliderSettings}>
                     {dailyForecast.map((forecast, index) => (
                         <div key={index} className="forecast-item">
                             <p>{forecast.dt_txt}: {forecast.main.temp} °C</p>
                             <p>{forecast.weather[0].description}</p>
-                            <img src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`} alt="Weather Icon" />
+                            <img src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`} alt="Weather Icon" className='forecast-img' />
                         </div>
                     ))}
                 </Slider>
             </div>
         </div>
-  )
+    )
 }
 
 export default UserPreferences
+
+
