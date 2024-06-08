@@ -51,7 +51,7 @@ const UserPreferences = () => {
                 <button type="submit">Get Weather</button>
             </form>
             <div className='forecast-container'>
-                <h3>Hourly Forecast</h3>
+                <h3>3 Hourly Forecast</h3>
                 <p>slide the weather forecast</p>
                 <Slider {...sliderSettings}>
                     {hourlyForecast.map((forecast, index) => (
